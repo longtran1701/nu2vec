@@ -4,11 +4,12 @@ import random
 
 
 class Graph():
-	def __init__(self, nx_G, is_directed, p, q):
+	def __init__(self, nx_G, is_directed, p, q, r=None):
 		self.G = nx_G
 		self.is_directed = is_directed
 		self.p = p
 		self.q = q
+		self.r = r
 
 	def node2vec_walk(self, walk_length, start_node):
 		'''
@@ -59,6 +60,7 @@ class Graph():
 		G = self.G
 		p = self.p
 		q = self.q
+		r = self.r
 
 		unnormalized_probs = []
 		for dst_nbr in sorted(G.neighbors(dst)):
@@ -67,6 +69,7 @@ class Graph():
 			elif G.has_edge(dst_nbr, src):
 				unnormalized_probs.append(G[dst][dst_nbr]['weight'])
 			else:
+				#TODO transition to other graph with prob r
 				unnormalized_probs.append(G[dst][dst_nbr]['weight']/q)
 		norm_const = sum(unnormalized_probs)
 		normalized_probs =  [float(u_prob)/norm_const for u_prob in unnormalized_probs]
