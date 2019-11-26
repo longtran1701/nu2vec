@@ -27,7 +27,6 @@ def keep_networks(filename, to_keep=None, directed=False):
         for line in f:
             data = line.split()
 
-            G.add_nodes_from([data[0], data[1]])
             for col in cols_to_keep:
                 if int(data[col]) != 0:
                     G.add_edge(
