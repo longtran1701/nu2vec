@@ -27,7 +27,6 @@ def keep_networks(filename, to_keep=None, directed=False):
         for line in f:
             data = line.split()
 
-            G.add_nodes_from([data[0], data[1]])
             for col in cols_to_keep:
                 if int(data[col]) != 0:
                     G.add_edge(
@@ -47,7 +46,7 @@ def run_node2vec(G, nn, p=1, q=1, r=1):
         for u, v in G.edges():
             f.write('{} {} {}\n'.format(u, v, G[u][v]['weight']))
 
-    subprocess.call(['python', 'main.py', '--input', filename,
+    subprocess.call(['python3', 'main.py', '--input', filename,
                '--output', filename + '.emb', '--p', str(p), '--q', str(q),
                '--r', str(r), '--nn'] + nn + ['--weighted', '--undirected'])
     
