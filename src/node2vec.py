@@ -101,13 +101,13 @@ class Graph():
 			else:
 				unnormalized_probs.append(G[dst][dst_nbr]['weight']/q)
 
-		dst_prefix, dst_suffix = tuple(dst.split('_'))
-		nn = [n for n in self.nn if n != dst_suffix]
+		src_prefix, src_suffix = tuple(src.split('_'))
+		nn = [n for n in self.nn if n != src_suffix]
 		for network in nn:
 			try:
-				dst_network = f'{dst_prefix}_{network}'
-				for dst_nbr in sorted(G.neighbors(dst_network)):
-					unnormalized_probs.append(G[dst_network][dst_nbr]['weight']/ (r * (len(self.nn) - 1)))
+				src_network = f'{src_prefix}_{network}'
+				for src_nbr in sorted(G.neighbors(src_network)):
+					unnormalized_probs.append(G[src_network][src_nbr]['weight']/ (r * (len(self.nn) - 1)))
 			except:
 				continue
 		print(f"len of unnormalized probs from {src} to {dst} is {len(unnormalized_probs)}")
@@ -147,13 +147,13 @@ class Graph():
 				alias_edges[(v, u)] = v_u
 
 
-				v_pref, v_suf = tuple(v.split('_'))
-				other_networks = [n for n in self.nn if n != v_suf]
+				u_pref, u_suf = tuple(u.split('_'))
+				other_networks = [n for n in self.nn if n != u_suf]
 				for network in other_networks:
 					try:
-						for neighbor in sorted(G.neighbors(f'{v_pref}_{network}')):
-							#print(f"Adding an edge from {v} to {neighbor}")
-							alias_edges[(v, neighbor)] = u_v
+						for neighbor in sorted(G.neighbors(f'{u_pref}_{network}')):
+							#print(f"Adding an edge from {u} to {neighbor}")
+							alias_edges[(u, neighbor)] = u_v
 					except:
 						pass
 

@@ -46,7 +46,7 @@ def run_node2vec(G, nn, p=1, q=1, r=1):
         for u, v in G.edges():
             f.write('{} {} {}\n'.format(u, v, G[u][v]['weight']))
 
-    subprocess.call(['python3', 'main.py', '--input', filename,
+    subprocess.call(['python', 'main.py', '--input', filename,
                '--output', filename + '.emb', '--p', str(p), '--q', str(q),
                '--r', str(r), '--nn'] + nn + ['--weighted', '--undirected'])
     
