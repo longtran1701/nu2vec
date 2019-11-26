@@ -1,0 +1,7 @@
+p1 p2 n1 n2
+u v 1 1
+v z 1 0
+u a 1 0
+a z 0 1
+a v 0 1
+u z 0 0

@@ -32,29 +32,35 @@ class Graph():
 			cur_prefix, cur_suffix = tuple(cur.split('_'))
 			other_networks = [n for n in self.nn if n != cur_suffix]
 			cur_nbrs = sorted(G.neighbors(cur))
+			cur_size_prev = len(cur_nbrs)
 			for network in other_networks:
 				try:
 					cur_nbrs += sorted(G.neighbors(f'{cur_prefix}_{network}'))
 				except:
 					pass
 
+
 			if len(cur_nbrs) > 0:
 				if len(walk) == 1:
 					walk.append(cur_nbrs[alias_draw(alias_nodes[cur][0], alias_nodes[cur][1])])
 				else:
 					prev = walk[-2]
-					# next_node = cur_nbrs[alias_draw(alias_edges[(prev, cur)][0], alias_edges[(prev, cur)][1])]
+
 					try:
 						draw = alias_draw(alias_edges[(prev, cur)][0], alias_edges[(prev, cur)][1])
 						next_node = cur_nbrs[draw]
+						print(f'Prev: {prev}')
+						print(f'Cur:  {cur}')
+					except KeyError:
+						print(f"Key Error on {prev} to {cur}")
+						return
 					except IndexError:
-						print(f'cur_nbrs has length {len(cur_nbrs)}')
-						print(f'drew index {draw}')
-					# try:
-					# 	next_node = cur_nbrs[alias_draw(alias_edges[(prev, cur)][0], alias_edges[(prev, cur)][1])]
-					# except:
-					# 	if (cur, prev) in alias_edges and len(alias_edges[(cur, prev)]) != 2:
-					# 		print(alias_edges[(cur, prev)])
+						print(f"Index Error on {prev} {cur}")
+						print(f"Draw is {draw}, len cur_nbrs {len(cur_nbrs)}, before append {cur_size_prev}")
+					except:
+						print("Gen Error")
+						return
+
 					walk.append(next_node)
 			else:
 				break
@@ -104,7 +110,7 @@ class Graph():
 					unnormalized_probs.append(G[dst_network][dst_nbr]['weight']/ (r * (len(self.nn) - 1)))
 			except:
 				continue
-
+		print(f"len of unnormalized probs from {src} to {dst} is {len(unnormalized_probs)}")
 		norm_const = sum(unnormalized_probs)
 		normalized_probs =  [float(u_prob)/norm_const for u_prob in unnormalized_probs]
 
@@ -140,28 +146,20 @@ class Graph():
 				alias_edges[(u, v)] = u_v
 				alias_edges[(v, u)] = v_u
 
-				u_pref, u_suf = tuple(u.split('_'))
-				other_networks = [n for n in self.nn if n != u_suf]
-				for network in other_networks:
-					try:
-						for neighbor in sorted(G.neighbors(f'{u_pref}_{network}')):
-							alias_edges[(u, neighbor)] = u_v
-							alias_edges[(neighbor, u)] = u_v
-					except:
-						pass
-				
+
 				v_pref, v_suf = tuple(v.split('_'))
 				other_networks = [n for n in self.nn if n != v_suf]
 				for network in other_networks:
 					try:
 						for neighbor in sorted(G.neighbors(f'{v_pref}_{network}')):
-							alias_edges[(v, neighbor)] = v_u
-							alias_edges[(neighbor, v)] = v_u
+							#print(f"Adding an edge from {v} to {neighbor}")
+							alias_edges[(v, neighbor)] = u_v
 					except:
 						pass
 
 		self.alias_nodes = alias_nodes
 		self.alias_edges = alias_edges
+		pprint(alias_edges)
 
 		return
 
