@@ -1,14 +1,18 @@
 import networkx as nx
 import sys
 import argparse
+import time
+import subprocess
+from os import remove
 
 
-parser = argparse.ArgumentParser(description="Run PPMan.")
-parser.add_argument('--keep', nargs='*', help="Networks to keep from file")
-parser.add_argument('--input', nargs='?', help="Input File of Graph")
-parser.add_argument('--output', nargs='?', help="Output Embedding")
+def parse_args():
+    parser = argparse.ArgumentParser(description="Run PPMan.")
+    parser.add_argument('--keep', nargs='*', help="Networks to keep from file", default=None)
+    parser.add_argument('--input', nargs='?', help="Input File of Graph")
+    parser.add_argument('--output', nargs='?', help="Output Embedding")
+    return parser.parse_args()
 
-Gprime = None
 
 def keep_networks(filename, to_keep=None, directed=False):
     G = nx.Graph() if not directed else nx.DiGraph()
@@ -32,18 +36,29 @@ def keep_networks(filename, to_keep=None, directed=False):
                         weight=int(data[col])
                     )
     
-    with open(filename + '_output', 'w') as f2:
-        for u, v in G.edges():
-            f2.write('{} {} {}\n'.format(u, v, G[u][v]['weight']))
     return G
 
 
+def run_node2vec(G, nn, p=1, q=1, r=1):
+    filename = 'input.tmp.' + str(time.time())
+    print('File has {} nodes'.format(len(G.nodes())))
+    print('File has {} edges'.format(len(G.edges())))
+    with open(filename, 'w') as f:
+        for u, v in G.edges():
+            f.write('{} {} {}\n'.format(u, v, G[u][v]['weight']))
+
+    subprocess.call(['python', 'main.py', '--input', filename,
+               '--output', filename + '.emb', '--p', str(p), '--q', str(q),
+               '--r', str(r), '--nn'] + nn + ['--weighted', '--undirected'])
+    
+    remove(filename)
+
+
 def main(argv):
-    global Gprime
-    G = None
-    if argv.keep:
-        G = keep_networks(argv.input, argv.keep)
+    G = keep_networks(argv.input, to_keep=argv.keep)
+    run_node2vec(G, argv.keep)
 
 
 if __name__ == '__main__':
-    main(parser.parse_args())
+    args = parse_args()
+    main(args)

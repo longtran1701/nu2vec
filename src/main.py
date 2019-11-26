@@ -50,6 +50,11 @@ def parse_args():
 
 	parser.add_argument('--q', type=float, default=1,
 	                    help='Inout hyperparameter. Default is 1.')
+	
+	parser.add_argument('--r', type=float, default=1,
+	                    help='Inout hyperparameter. Default is 1.')
+
+	parser.add_argument('--nn', nargs="*", default=[], help='names of networks')
 
 	parser.add_argument('--weighted', dest='weighted', action='store_true',
 	                    help='Boolean specifying (un)weighted. Default is unweighted.')
@@ -68,9 +73,9 @@ def read_graph():
 	Reads the input network in networkx.
 	'''
 	if args.weighted:
-		G = nx.read_edgelist(args.input, nodetype=int, data=(('weight',float),), create_using=nx.DiGraph())
+		G = nx.read_edgelist(args.input, data=(('weight',float),), create_using=nx.DiGraph())
 	else:
-		G = nx.read_edgelist(args.input, nodetype=int, create_using=nx.DiGraph())
+		G = nx.read_edgelist(args.input, create_using=nx.DiGraph())
 		for edge in G.edges():
 			G[edge[0]][edge[1]]['weight'] = 1
 
@@ -83,9 +88,9 @@ def learn_embeddings(walks):
 	'''
 	Learn embeddings by optimizing the Skipgram objective using SGD.
 	'''
-	walks = [map(str, walk) for walk in walks]
+	walks = [list(map(str, walk)) for walk in walks]
 	model = Word2Vec(walks, size=args.dimensions, window=args.window_size, min_count=0, sg=1, workers=args.workers, iter=args.iter)
-	model.save_word2vec_format(args.output)
+	model.wv.save_word2vec_format(args.output)
 	
 	return
 
@@ -94,7 +99,7 @@ def main(args):
 	Pipeline for representational learning for all nodes in a graph.
 	'''
 	nx_G = read_graph()
-	G = node2vec.Graph(nx_G, args.directed, args.p, args.q)
+	G = node2vec.Graph(nx_G, args.directed, args.p, args.q, args.r, args.nn)
 	G.preprocess_transition_probs()
 	walks = G.simulate_walks(args.num_walks, args.walk_length)
 	learn_embeddings(walks)
