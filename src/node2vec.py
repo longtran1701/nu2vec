@@ -2,7 +2,6 @@ import numpy as np
 import networkx as nx
 import random
 from tqdm import tqdm
-from pprint import pprint
 from itertools import permutations
 
 
@@ -16,6 +15,7 @@ class Graph():
 		self.nn = nn
 		if not self.nn:
 			raise Exception("Must name at least 1 network")
+
 
 	def node2vec_walk(self, walk_length, start_node):
 		'''
@@ -39,9 +39,6 @@ class Graph():
 					cur_nbrs += sorted(G.neighbors(f'{cur_prefix}_{network}'))
 				except:
 					pass
-			
-			if cur == 'u_n1':
-				print(cur_nbrs)
 
 			if len(cur_nbrs) > 0:
 				if len(walk) == 1:
@@ -65,8 +62,9 @@ class Graph():
 					walk.append(next_node)
 			else:
 				break
-		print(f"Walk of {walk}")
+
 		return walk
+
 
 	def simulate_walks(self, num_walks, walk_length):
 		'''
@@ -77,12 +75,13 @@ class Graph():
 		nodes = list(G.nodes())
 		print('Walk iteration:')
 		for walk_iter in range(num_walks):
-			print(str(walk_iter+1), '/', str(num_walks))
+			print(str(walk_iter + 1), '/', str(num_walks))
 			random.shuffle(nodes)
 			for node in nodes:
 				walks.append(self.node2vec_walk(walk_length=walk_length, start_node=node))
 
 		return walks
+
 
 	def get_alias_edge(self, src, dst):
 		'''
@@ -95,7 +94,6 @@ class Graph():
 
 		unnormalized_probs = []
 
-		to_print = sorted(G.neighbors(dst))
 		for dst_nbr in sorted(G.neighbors(dst)):
 			if dst_nbr == src:
 				unnormalized_probs.append(G[dst][dst_nbr]['weight'] / p)
@@ -109,15 +107,14 @@ class Graph():
 		for network in nn:
 			try:
 				dst_network = f'{dst_prefix}_{network}'
-				to_print += sorted(G.neighbors(dst_network))
 				for dst_nbr in sorted(G.neighbors(dst_network)):
 					unnormalized_probs.append(G[dst_network][dst_nbr]['weight'] / (r * (len(self.nn) - 1)))
 			except:
 				continue
-		print(f"len of unnormalized probs from {src} to {dst} is {len(unnormalized_probs)}")
 		norm_const = sum(unnormalized_probs)
 		normalized_probs =  [float(u_prob)/norm_const for u_prob in unnormalized_probs]
 		return alias_setup(normalized_probs)
+
 
 	def preprocess_transition_probs(self):
 		'''
@@ -162,8 +159,6 @@ class Graph():
 
 		self.alias_nodes = alias_nodes
 		self.alias_edges = alias_edges
-		self.print_cross_edges()
-
 		return
 	
 
@@ -206,6 +201,7 @@ def alias_setup(probs):
 	        larger.append(large)
 	
 	return J, q
+
 
 def alias_draw(J, q):
 	'''

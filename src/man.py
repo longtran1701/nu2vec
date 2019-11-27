@@ -14,15 +14,12 @@ def parse_args():
     return parser.parse_args()
 
 
-def keep_networks(filename, to_keep=None, directed=False):
+def keep_networks(filename, to_keep, directed=False):
     G = nx.Graph() if not directed else nx.DiGraph()
     
     with open(filename, 'r') as f:
         hdr = f.readline().split()
-
-        cols_to_keep = list(range(2, len(hdr)))
-        if to_keep:
-            cols_to_keep = list(hdr.index(col) for col in to_keep)
+        cols_to_keep = list(hdr.index(col) for col in to_keep)
 
         for line in f:
             data = line.split()
@@ -32,21 +29,34 @@ def keep_networks(filename, to_keep=None, directed=False):
                     G.add_edge(
                         '{}_{}'.format(data[0], hdr[col]),
                         '{}_{}'.format(data[1], hdr[col]),
-                        weight=int(data[col])
+                        weight=float(data[col])
                     )
     
     return G
 
 
-def run_node2vec(G, nn, p=1, q=1, r=1):
-    filename = 'input.tmp.' + str(time.time())
-    print('File has {} nodes'.format(len(G.nodes())))
-    print('File has {} edges'.format(len(G.edges())))
+def normalize_edges_by_component(G, to_keep):
+    weight_map = {component : {} for component in to_keep}
+    for u, v in G.edges():
+        _, comp = tuple(u.split('_'))
+        weight_map[comp][(u, v)] = float(G[u][v]['weight'])
+    
+    for comp, component_edges in weight_map.items():
+        norm_const = sum(component_edges.values())
+        for u, v in component_edges.keys():
+            weight_map[comp][(u, v)] /= float(norm_const)
+            G[u][v]['weight'] = weight_map[comp][(u, v)]
+    
+    return G
+
+
+def run_node2vec(G, file_prefix, nn, p=1, q=1, r=1):
+    filename = f'{file_prefix}.{time.time()}.tmp'
     with open(filename, 'w') as f:
         for u, v in G.edges():
             f.write('{} {} {}\n'.format(u, v, G[u][v]['weight']))
 
-    subprocess.call(['python3', 'main.py', '--input', filename,
+    subprocess.call(['python', 'main.py', '--input', filename,
                '--output', filename + '.emb', '--p', str(p), '--q', str(q),
                '--r', str(r), '--nn'] + nn + ['--weighted', '--undirected'])
     
@@ -55,7 +65,8 @@ def run_node2vec(G, nn, p=1, q=1, r=1):
 
 def main(argv):
     G = keep_networks(argv.input, to_keep=argv.keep)
-    run_node2vec(G, argv.keep)
+    G = normalize_edges_by_component(G, to_keep=argv.keep)
+    run_node2vec(G, argv.input, argv.keep)
 
 
 if __name__ == '__main__':
