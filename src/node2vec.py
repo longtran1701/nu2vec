@@ -3,6 +3,7 @@ import networkx as nx
 import random
 from tqdm import tqdm
 from pprint import pprint
+from itertools import permutations
 
 
 class Graph():
@@ -38,7 +39,9 @@ class Graph():
 					cur_nbrs += sorted(G.neighbors(f'{cur_prefix}_{network}'))
 				except:
 					pass
-
+			
+			if cur == 'u_n1':
+				print(cur_nbrs)
 
 			if len(cur_nbrs) > 0:
 				if len(walk) == 1:
@@ -49,8 +52,6 @@ class Graph():
 					try:
 						draw = alias_draw(alias_edges[(prev, cur)][0], alias_edges[(prev, cur)][1])
 						next_node = cur_nbrs[draw]
-						print(f'Prev: {prev}')
-						print(f'Cur:  {cur}')
 					except KeyError:
 						print(f"Key Error on {prev} to {cur}")
 						return
@@ -64,7 +65,7 @@ class Graph():
 					walk.append(next_node)
 			else:
 				break
-
+		print(f"Walk of {walk}")
 		return walk
 
 	def simulate_walks(self, num_walks, walk_length):
@@ -93,27 +94,29 @@ class Graph():
 		r = self.r
 
 		unnormalized_probs = []
+
+		to_print = sorted(G.neighbors(dst))
 		for dst_nbr in sorted(G.neighbors(dst)):
 			if dst_nbr == src:
-				unnormalized_probs.append(G[dst][dst_nbr]['weight']/p)
+				unnormalized_probs.append(G[dst][dst_nbr]['weight'] / p)
 			elif G.has_edge(dst_nbr, src):
 				unnormalized_probs.append(G[dst][dst_nbr]['weight'])
 			else:
-				unnormalized_probs.append(G[dst][dst_nbr]['weight']/q)
+				unnormalized_probs.append(G[dst][dst_nbr]['weight'] / q)
 
-		src_prefix, src_suffix = tuple(src.split('_'))
-		nn = [n for n in self.nn if n != src_suffix]
+		dst_prefix, dst_suffix = tuple(dst.split('_'))
+		nn = [n for n in self.nn if n != dst_suffix]
 		for network in nn:
 			try:
-				src_network = f'{src_prefix}_{network}'
-				for src_nbr in sorted(G.neighbors(src_network)):
-					unnormalized_probs.append(G[src_network][src_nbr]['weight']/ (r * (len(self.nn) - 1)))
+				dst_network = f'{dst_prefix}_{network}'
+				to_print += sorted(G.neighbors(dst_network))
+				for dst_nbr in sorted(G.neighbors(dst_network)):
+					unnormalized_probs.append(G[dst_network][dst_nbr]['weight'] / (r * (len(self.nn) - 1)))
 			except:
 				continue
 		print(f"len of unnormalized probs from {src} to {dst} is {len(unnormalized_probs)}")
 		norm_const = sum(unnormalized_probs)
 		normalized_probs =  [float(u_prob)/norm_const for u_prob in unnormalized_probs]
-
 		return alias_setup(normalized_probs)
 
 	def preprocess_transition_probs(self):
@@ -145,23 +148,31 @@ class Graph():
 				v_u = self.get_alias_edge(v, u)
 				alias_edges[(u, v)] = u_v
 				alias_edges[(v, u)] = v_u
-
-
+			
+			print('----------------Processing networks-----------------')
+			for u, v in tqdm(list(permutations(G.nodes(), 2))):
 				u_pref, u_suf = tuple(u.split('_'))
+				v_pref, v_suf = tuple(v.split('_'))
 				other_networks = [n for n in self.nn if n != u_suf]
-				for network in other_networks:
-					try:
-						for neighbor in sorted(G.neighbors(f'{u_pref}_{network}')):
-							#print(f"Adding an edge from {u} to {neighbor}")
-							alias_edges[(u, neighbor)] = u_v
-					except:
-						pass
+				for net in other_networks:
+					u_prime = f'{u_pref}_{net}'
+					v_prime = f'{v_pref}_{net}'
+					if (u_prime, v_prime) in G.edges() or (v_prime, u_prime) in G.edges():
+						alias_edges[(u, v_prime)] = alias_edges[(u_prime, v_prime)]
 
 		self.alias_nodes = alias_nodes
 		self.alias_edges = alias_edges
-		pprint(alias_edges)
+		self.print_cross_edges()
 
 		return
+	
+
+	def print_cross_edges(self):
+		for u, v in self.alias_edges.keys():
+			_, u_pref = tuple(u.split('_'))
+			_, v_pref = tuple(v.split('_'))
+			if u_pref != v_pref:
+				print(f'({u}, {v}) : {self.alias_edges[(u, v)]}')
 
 
 def alias_setup(probs):

@@ -2,8 +2,10 @@
 ------------------Processing edges------------------
 len of unnormalized probs from u_n1 to v_n1 is 4
 len of unnormalized probs from v_n1 to u_n1 is 3
+['a_n1', 'v_n1', 'v_n2']
 len of unnormalized probs from u_n1 to a_n1 is 3
 len of unnormalized probs from a_n1 to u_n1 is 3
+['a_n1', 'v_n1', 'v_n2']
 len of unnormalized probs from v_n1 to z_n1 is 2
 len of unnormalized probs from z_n1 to v_n1 is 4
 len of unnormalized probs from u_n2 to v_n2 is 4
@@ -12,1043 +14,1168 @@ len of unnormalized probs from v_n2 to a_n2 is 3
 len of unnormalized probs from a_n2 to v_n2 is 4
 len of unnormalized probs from a_n2 to z_n2 is 2
 len of unnormalized probs from z_n2 to a_n2 is 3
-{('a_n1', 'u_n1'): (array([0, 0, 0]), array([1., 1., 1.])),
- ('a_n1', 'v_n2'): (array([0, 0, 0]), array([1., 1., 1.])),
- ('a_n1', 'z_n2'): (array([0, 0, 0]), array([1., 1., 1.])),
- ('a_n2', 'u_n1'): (array([0, 0, 0]), array([1., 1., 1.])),
- ('a_n2', 'v_n2'): (array([0, 0, 0, 0]), array([1., 1., 1., 1.])),
- ('a_n2', 'z_n2'): (array([0, 0]), array([1., 1.])),
- ('u_n1', 'a_n1'): (array([0, 0, 0]), array([1., 1., 1.])),
- ('u_n1', 'v_n1'): (array([0, 0, 0, 0]), array([1., 1., 1., 1.])),
- ('u_n2', 'v_n2'): (array([0, 0, 0, 0]), array([1., 1., 1., 1.])),
- ('v_n1', 'a_n2'): (array([0, 0, 0, 0]), array([1., 1., 1., 1.])),
- ('v_n1', 'u_n1'): (array([0, 0, 0]), array([1., 1., 1.])),
- ('v_n1', 'u_n2'): (array([0, 0, 0, 0]), array([1., 1., 1., 1.])),
- ('v_n1', 'z_n1'): (array([0, 0]), array([1., 1.])),
- ('v_n2', 'a_n2'): (array([0, 0, 0]), array([1., 1., 1.])),
- ('v_n2', 'u_n1'): (array([0, 0, 0, 0]), array([1., 1., 1., 1.])),
- ('v_n2', 'u_n2'): (array([0, 0, 0]), array([1., 1., 1.])),
- ('v_n2', 'z_n1'): (array([0, 0, 0, 0]), array([1., 1., 1., 1.])),
- ('z_n1', 'a_n2'): (array([0, 0]), array([1., 1.])),
- ('z_n1', 'v_n1'): (array([0, 0, 0, 0]), array([1., 1., 1., 1.])),
- ('z_n2', 'a_n2'): (array([0, 0, 0]), array([1., 1., 1.])),
- ('z_n2', 'v_n1'): (array([0, 0]), array([1., 1.]))}
+----------------Processing networks-----------------
+(u_n1, v_n2) : (array([0, 0, 0, 0]), array([1., 1., 1., 1.]))
+(v_n1, u_n2) : (array([0, 0, 0]), array([1., 1., 1.]))
+(v_n1, a_n2) : (array([0, 0, 0]), array([1., 1., 1.]))
+(a_n1, v_n2) : (array([0, 0, 0, 0]), array([1., 1., 1., 1.]))
+(a_n1, z_n2) : (array([0, 0]), array([1., 1.]))
+(z_n1, a_n2) : (array([0, 0, 0]), array([1., 1., 1.]))
+(u_n2, v_n1) : (array([0, 0, 0, 0]), array([1., 1., 1., 1.]))
+(u_n2, a_n1) : (array([0, 0, 0]), array([1., 1., 1.]))
+(v_n2, u_n1) : (array([0, 0, 0]), array([1., 1., 1.]))
+(v_n2, z_n1) : (array([0, 0]), array([1., 1.]))
+(a_n2, u_n1) : (array([0, 0, 0]), array([1., 1., 1.]))
+(z_n2, v_n1) : (array([0, 0, 0, 0]), array([1., 1., 1., 1.]))
 Walk iteration:
 1 / 10
-Prev: a_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n2
-Key Error on u_n2 to v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n2
-Key Error on u_n2 to v_n1
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n2
-Key Error on u_n2 to v_n1
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to v_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to v_n1
-Prev: u_n2
-Cur:  v_n2
-Index Error on v_n2 z_n1
-Draw is 2, len cur_nbrs 2, before append 1
-Key Error on z_n1 to z_n1
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'a_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'u_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1']
 2 / 10
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n2
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: v_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: a_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to a_n1
-Prev: v_n2
-Cur:  u_n2
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n2
-Key Error on u_n2 to v_n1
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n2
-Key Error on u_n2 to v_n1
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'z_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'a_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'z_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n2', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'v_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'z_n1']
 3 / 10
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Index Error on v_n2 u_n1
-Draw is 3, len cur_nbrs 3, before append 2
-Key Error on u_n1 to u_n1
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to a_n1
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Index Error on v_n1 a_n2
-Draw is 3, len cur_nbrs 3, before append 2
-Key Error on a_n2 to a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Index Error on v_n2 z_n1
-Draw is 2, len cur_nbrs 2, before append 1
-Key Error on z_n1 to z_n1
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to v_n1
-Prev: a_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n2
-Key Error on u_n2 to v_n1
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n1', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n2', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'z_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n1', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n1', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'a_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'a_n2']
 4 / 10
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to v_n1
-Prev: a_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Index Error on a_n1 z_n2
-Draw is 2, len cur_nbrs 2, before append 1
-Key Error on z_n2 to z_n2
-Prev: v_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: z_n1
-Cur:  v_n1
-Index Error on v_n1 u_n2
-Draw is 3, len cur_nbrs 3, before append 1
-Key Error on u_n2 to u_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Index Error on v_n2 u_n1
-Draw is 3, len cur_nbrs 3, before append 2
-Key Error on u_n1 to u_n1
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to a_n1
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'z_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'u_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2']
 5 / 10
-Prev: a_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n2
-Key Error on u_n2 to a_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to v_n1
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n2
-Key Error on u_n2 to v_n1
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n2
-Key Error on u_n2 to a_n1
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to a_n1
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n2', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n1', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n1', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n2', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n2', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'z_n1']
 6 / 10
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to a_n1
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Index Error on a_n1 z_n2
-Draw is 2, len cur_nbrs 2, before append 1
-Key Error on z_n2 to z_n2
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: a_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to a_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n2', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'a_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'u_n1', 'v_n1', 'a_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'a_n2']
 7 / 10
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: z_n1
-Cur:  v_n1
-Index Error on v_n1 a_n2
-Draw is 3, len cur_nbrs 3, before append 2
-Key Error on a_n2 to a_n2
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Index Error on a_n1 z_n2
-Draw is 2, len cur_nbrs 2, before append 1
-Key Error on z_n2 to z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to v_n1
-Prev: a_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'a_n1', 'z_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n1', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n1', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'a_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2']
 8 / 10
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Index Error on a_n1 z_n2
-Draw is 2, len cur_nbrs 2, before append 1
-Key Error on z_n2 to z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Index Error on v_n2 u_n1
-Draw is 3, len cur_nbrs 3, before append 2
-Key Error on u_n1 to u_n1
-Prev: a_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n2
-Key Error on u_n2 to a_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to a_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to v_n1
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'z_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'a_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'a_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n1', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1']
 9 / 10
-Prev: a_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to a_n1
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n2
-Key Error on u_n2 to v_n1
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Key Error on u_n2 to a_n1
-Prev: z_n1
-Cur:  v_n1
-Index Error on v_n1 u_n2
-Draw is 3, len cur_nbrs 3, before append 1
-Key Error on u_n2 to u_n2
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n1', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n2', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n1', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n2']
 10 / 10
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: u_n2
-Cur:  v_n2
-Index Error on v_n2 u_n1
-Draw is 3, len cur_nbrs 3, before append 2
-Key Error on u_n1 to u_n1
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  z_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n2
-Key Error on u_n2 to v_n1
-Prev: v_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  z_n1
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  z_n1
-Prev: z_n1
-Cur:  a_n2
-Prev: a_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  u_n2
-Prev: u_n2
-Cur:  v_n2
-Prev: v_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: a_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  u_n1
-Key Error on u_n1 to v_n2
-Prev: z_n2
-Cur:  a_n2
-Prev: a_n2
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  a_n1
-Prev: a_n1
-Cur:  z_n2
-Prev: z_n2
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n1
-Prev: u_n1
-Cur:  v_n1
-Index Error on v_n1 a_n2
-Draw is 3, len cur_nbrs 3, before append 2
-Key Error on a_n2 to a_n2
-Prev: z_n1
-Cur:  v_n1
-Prev: v_n1
-Cur:  u_n2
-Key Error on u_n2 to a_n1
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n1', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'a_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n2', 'u_n2', 'v_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'a_n2', 'u_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['v_n1', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'a_n2', 'z_n2', 'a_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n1', 'a_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n2', 'a_n2', 'u_n1', 'v_n1', 'a_n2', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'u_n1', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'z_n1', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'a_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['u_n1', 'a_n1', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n1', 'z_n1', 'v_n1', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'v_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'a_n2', 'u_n1', 'v_n2', 'z_n1', 'a_n2', 'v_n2', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'z_n2', 'v_n1', 'z_n1', 'a_n2', 'u_n1', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n1', 'a_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n2', 'a_n1', 'z_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'v_n1']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+['a_n1', 'v_n1', 'v_n2']
+Walk of ['z_n1', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'z_n1', 'a_n2', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'v_n1', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'v_n2', 'u_n1', 'v_n1', 'z_n1', 'v_n1', 'a_n2', 'u_n1', 'a_n1', 'u_n1', 'v_n1', 'z_n1', 'a_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'a_n1', 'v_n2', 'u_n1', 'v_n1', 'u_n2', 'v_n2', 'u_n2', 'v_n2', 'a_n2', 'z_n2', 'a_n2', 'v_n2', 'u_n2', 'a_n1', 'v_n2', 'a_n2', 'u_n1', 'v_n1', 'u_n2', 'a_n1', 'u_n1', 'a_n1', 'z_n2', 'v_n1', 'u_n2', 'v_n1', 'u_n1', 'v_n2', 'u_n1', 'a_n1']
 File has 8 nodes
 File has 6 edges
