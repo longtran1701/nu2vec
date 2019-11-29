@@ -45,25 +45,29 @@ class Graph():
 					walk.append(cur_nbrs[alias_draw(alias_nodes[cur][0], alias_nodes[cur][1])])
 				else:
 					prev = walk[-2]
+					draw = alias_draw(alias_edges[(prev, cur)][0], alias_edges[(prev, cur)][1])
+					next_node = cur_nbrs[draw]
 
-					try:
-						draw = alias_draw(alias_edges[(prev, cur)][0], alias_edges[(prev, cur)][1])
-						next_node = cur_nbrs[draw]
-					except KeyError:
-						print(f"Key Error on {prev} to {cur}")
-						return
-					except IndexError:
-						print(f"Index Error on {prev} {cur}")
-						print(f"Draw is {draw}, len cur_nbrs {len(cur_nbrs)}, before append {cur_size_prev}")
-					except:
-						print("Gen Error")
-						return
+					# try:
+					# 	draw = alias_draw(alias_edges[(prev, cur)][0], alias_edges[(prev, cur)][1])
+					# 	next_node = cur_nbrs[draw]
+					# except KeyError as e:
+					# 	print(f"Key Error on {prev} to {cur}")
+					# 	return
+					# except IndexError as e:
+					# 	print(f"Index Error on {prev} {cur}")
+					# 	print(f"Draw is {draw}, len cur_nbrs {len(cur_nbrs)}, before append {cur_size_prev}")
+					# 	return
+					# except Exception as e:
+					# 	print("Gen Error")
+					# 	return
 
 					walk.append(next_node)
 			else:
 				break
 
-		return walk
+		# remove suffix so we're only left with 1 network
+		return list(map(lambda x: x.split('_')[0], walk))
 
 
 	def simulate_walks(self, num_walks, walk_length):
