@@ -35,6 +35,28 @@ Outputs:
 
 Node label association file.
 
+An example always helps to elucidate what is going on. This example
+uses the k-nearest neighbors voting strategy with k = 2. The input is
+an example embedding in R^2 and an example labelling. Every node is
+labeled except for node E.
+
+Input: 
+
+```
+python fpredict.py examples/faker2_emb.txt examples/faker2_labels.txt --knn 2
+```
+
+Ouput:
+
+```
+A Mouse Cat
+B Mouse Cat
+C Cat Dog
+D Mouse Dog
+E Bubbaloo
+F Bubbaloo
+```
+
 ### Evaluation Strategy
 
 The way we will evaluate is using 2-fold cross validation. 
