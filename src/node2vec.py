@@ -151,6 +151,8 @@ class Graph():
 				alias_edges[(v, u)] = v_u
 			
 			print('----------------Processing networks-----------------')
+
+			edge_set = set(G.edges())
 			for u, v in tqdm(list(permutations(G.nodes(), 2))):
 				u_pref, u_suf = tuple(u.split('_'))
 				v_pref, v_suf = tuple(v.split('_'))
@@ -158,7 +160,7 @@ class Graph():
 				for net in other_networks:
 					u_prime = f'{u_pref}_{net}'
 					v_prime = f'{v_pref}_{net}'
-					if (u_prime, v_prime) in G.edges() or (v_prime, u_prime) in G.edges():
+					if (u_prime, v_prime) in edge_set or (v_prime, u_prime) in edge_set:
 						alias_edges[(u, v_prime)] = alias_edges[(u_prime, v_prime)]
 
 		self.alias_nodes = alias_nodes
