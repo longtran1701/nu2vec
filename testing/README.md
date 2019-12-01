@@ -24,12 +24,13 @@ Inputs:
       as labels.
     - Example: examples/MIPSFirstLevel.anno3
 - Network file
-    - Either a R^d network embedding (same format as node2vec) or the
-      network itself.
+    - Either a R^d network embedding (same format as node2vec), the
+      network itself as an edge list, or the STRING network.
 - Function prediction algorithm
     - Majority vote (--mv)
     - Weighted majority vote (--wmv)
     - K-nearest neighbors (--knn K)
+    - STRING majority vote (--string COLUMN)
 
 Outputs:
 
@@ -59,6 +60,6 @@ F Bubbaloo
 
 ### Evaluation Strategy
 
-The way we will evaluate is using 2-fold cross validation. 
-
-    
+The perfomance measurement strategy is very simple. We will do
+it using 2-fold cross validation. We will randomly remove half of the labels,
+run function prediction on it, and evaluate the accuracy.

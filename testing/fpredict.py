@@ -1,6 +1,12 @@
 import argparse
 import scipy.spatial.distance as dist
 import numpy as np
+import networkx as nx
+
+"""
+Current TODOs:
+  - Only chooses best label, output list of l abels with significance
+"""
 
 """
 Parses the arguments into an arguments object.
@@ -10,6 +16,8 @@ def parse_args():
     p.add_argument("network", help="Network file.")
     p.add_argument("labels", help="Node labels file.")
     p.add_argument("--knn", type=int, help="k-nearest neighbors vote.")
+    p.add_argument("--string", type=int,
+                   help="Weighted majority vote on STRING data.")
     p.add_argument("--mv", action="store_true",
                    help="Standard majority vote.")
     p.add_argument("--wmv", action="store_true",
@@ -37,7 +45,7 @@ def parse_labels(fname):
 """
 Takes a node2vec embedding file and outputs
 both a NxD matrix and an array where the ith
-entry contains the name of the node in the ith 
+entry contains the name of the node in the ith
 row of the matrix.
 """
 def parse_embedding(fname):
@@ -60,6 +68,28 @@ def parse_embedding(fname):
             node_name_array[i] = name
 
         return (matrix, node_name_array)
+
+"""
+Parses the STRING network file into a weighted networkx
+graph using the specified column as the weights.
+
+Reference file format is 4932.protein.links.detailed.v11.0.txt
+"""
+def parse_string_network(fname, column):
+    graph = nx.Graph()
+
+    with open(fname, "r") as f:
+        lines = f.readlines()
+        for line in lines[1:]:
+            words = line.split()
+
+            protein1 = words[0][5:]
+            protein2 = words[1][5:]
+            weight = float(words[column + 2])
+
+            graph.add_edge(protein1, protein2, weight=weight)
+
+    return graph
 
 """
 Returns most popular label among the voters,
@@ -106,6 +136,35 @@ def knn(matrix, node_names, labels, k):
 
     return labelling
 
+"""
+Performs majority vote on unlabeled nodes
+in the graph.
+
+Outputs a labelling for the nodes.
+"""
+def mv(G, labels, weighted=False):
+    labelling = {}
+
+    for node in G.nodes():
+        if node in labels:
+            labelling[node] = labels[node]
+            continue
+
+        voters = list(G[node])
+        if weighted:
+            weights = {}
+
+            for (voter, data) in G[node].items():
+                weights[voter] = data["weight"]
+
+            label = vote(voters, labels, weights=weights)
+            labelling[node] = [label]
+        else:
+            label = vote(voters, labels)
+            labelling[node] = [label]
+
+    return labelling
+
 if __name__ == "__main__":
     args = parse_args()
 
@@ -113,12 +172,17 @@ if __name__ == "__main__":
     labelling = None
 
     if args.mv:
-        print("Majority Vote")
+        graph = nx.readwrite.edgelist.read_edgelist(args.network)
+        labelling = mv(graph, labels, weighted=False)
     elif args.wmv:
-        print("Weighted Majority Vote")
+        graph = nx.readwrite.read_weighted_edgelist(args.network)
+        labelling = mv(graph, labels, weighted=True)
     elif args.knn is not None:
         (mat, nna) = parse_embedding(args.network)
         labelling = knn(mat, nna, labels, args.knn)
+    elif args.string is not None:
+        graph = parse_string_network(args.network, args.string)
+        labelling = mv(graph, args.labels, weighted=True)
 
     """ Print labelling to stdout """
     for node, labels in labelling.items():
