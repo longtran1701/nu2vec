@@ -47,21 +47,6 @@ class Graph():
 					prev = walk[-2]
 					draw = alias_draw(alias_edges[(prev, cur)][0], alias_edges[(prev, cur)][1])
 					next_node = cur_nbrs[draw]
-
-					# try:
-					# 	draw = alias_draw(alias_edges[(prev, cur)][0], alias_edges[(prev, cur)][1])
-					# 	next_node = cur_nbrs[draw]
-					# except KeyError as e:
-					# 	print(f"Key Error on {prev} to {cur}")
-					# 	return
-					# except IndexError as e:
-					# 	print(f"Index Error on {prev} {cur}")
-					# 	print(f"Draw is {draw}, len cur_nbrs {len(cur_nbrs)}, before append {cur_size_prev}")
-					# 	return
-					# except Exception as e:
-					# 	print("Gen Error")
-					# 	return
-
 					walk.append(next_node)
 			else:
 				break
