@@ -2,10 +2,12 @@ import argparse
 import scipy.spatial.distance as dist
 import numpy as np
 import networkx as nx
+import random
 
 """
 Current TODOs:
   - Only chooses best label, output list of l abels with significance
+  - Argument parsing is a code smell. I don't like it.
 """
 
 """
@@ -15,13 +17,18 @@ def parse_args():
     p = argparse.ArgumentParser(description="Function prediction.")
     p.add_argument("network", help="Network file.")
     p.add_argument("labels", help="Node labels file.")
-    p.add_argument("--knn", type=int, help="k-nearest neighbors vote.")
-    p.add_argument("--string", type=int,
-                   help="Weighted majority vote on STRING data.")
-    p.add_argument("--mv", action="store_true",
-                   help="Standard majority vote.")
-    p.add_argument("--wmv", action="store_true",
-                   help="Weighted majority vote.")
+    p.add_argument("--network-type", "-t", required=True,
+                   choices=["edgelist", "weighted_edgelist",
+                            "embedding", "string"],
+                   help="Type of network file.")
+    p.add_argument("--algorithm", "-a", required=True,
+                   choices=["mv", "wmv", "knn"],
+                   help="Function prediction algorithm to use.")
+    p.add_argument("--cross-validate", type=int,
+                   help="Assumes label list is full and performs k-fold "
+                        "cross validation.")
+    p.add_argument("--args", nargs='*',
+                   help="Extra arguments for prediction algorithm.")
     return p.parse_args()
 
 """
@@ -92,6 +99,19 @@ def parse_string_network(fname, column):
     return graph
 
 """
+Parses the network file using the appropriate method.
+"""
+def parse_network(args):
+    if args.network_type == "edgelist":
+        return nx.readwrite.edgelist.read_edgelist(args.network)
+    elif args.network_type == "weighted_edgelist":
+        return nx.readwrite.edgelist.read_weighted_edgelist(args.network)
+    elif args.network_type == "embedding":
+        return parse_embedding(args.network)
+    elif args.network_type == "string":
+        return parse_string_network(args.network, args.string)
+
+"""
 Returns most popular label among the voters,
 optionally weighted by their significance.
 """
@@ -129,8 +149,17 @@ def knn(matrix, node_names, labels, k):
             labelling[node] = labels[node]
             continue
 
-        voter_ids = np.argsort(distances[i])[1:(k + 1)]
-        voters = [node_names[i] for i in voter_ids]
+        sorted_voter_ids = np.argsort(distances[i])[1:]
+
+        voters = []
+
+        j = 0
+        while len(voters) < k or j >= len(sorted_voter_ids):
+            potential_voter = node_names[j]
+            if potential_voter in labelling:
+                voters.append(potential_voter)
+            j = j + 1
+
         label = vote(voters, labels)
         labelling[node] = [label]
 
@@ -165,28 +194,55 @@ def mv(G, labels, weighted=False):
 
     return labelling
 
+"""
+Runs algorithm, returns labelling.
+"""
+def run_algorithm(labels, args):
+    if args.algorithm == "mv":
+        graph = parse_network(args)
+        return mv(graph, labels, weighted=False)
+    elif args.algorithm == "wmv":
+        graph = parse_network(args)
+        return mv(graph, labels, weighted=True)
+    elif args.algorithm == "knn":
+        try:
+            k = int(args.args[0])
+        except TypeError:
+            print("Expected argument for k-nearest neighbors.")
+            exit(1)
+        except ValueError:
+            print("Expected integer argument.")
+            exit(1)
+
+        (mat, nna) = parse_network(args)
+        return knn(mat, nna, labels, k)
+
 if __name__ == "__main__":
     args = parse_args()
-
     labels = parse_labels(args.labels)
-    labelling = None
 
-    if args.mv:
-        graph = nx.readwrite.edgelist.read_edgelist(args.network)
-        labelling = mv(graph, labels, weighted=False)
-    elif args.wmv:
-        graph = nx.readwrite.read_weighted_edgelist(args.network)
-        labelling = mv(graph, labels, weighted=True)
-    elif args.knn is not None:
-        (mat, nna) = parse_embedding(args.network)
-        labelling = knn(mat, nna, labels, args.knn)
-    elif args.string is not None:
-        graph = parse_string_network(args.network, args.string)
-        labelling = mv(graph, args.labels, weighted=True)
+    if args.cross_validate is not None:
+        nodes = list(labels.keys())
+        random.shuffle(nodes)
 
-    """ Print labelling to stdout """
-    for node, labels in labelling.items():
-        labels_str = " ".join(labels)
-        print(node + " " + labels_str)
+        """ Remove n / k nodes from labelling and run algorithm on
+            each set. """
+        for i in range(0, args.cross_validate):
+            inc = int(len(nodes) / args.cross_validate)
+
+            training_nodes = nodes[:inc * i] + nodes[inc * (i + 1):]
+            training_labels = {}
+            for n in training_nodes:
+                if n in labels:
+                    training_labels[n] = labels[n]
+
+            test_labelling = run_algorithm(training_labels, args)
+    else:
+        labelling = run_algorithm(labels, args)
+
+        """ Print labelling to stdout """
+        for node, labels in labelling.items():
+            labels_str = " ".join(labels)
+            print(node + " " + labels_str)
 
     exit(0)

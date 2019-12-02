@@ -63,3 +63,6 @@ F Bubbaloo
 The perfomance measurement strategy is very simple. We will do
 it using 2-fold cross validation. We will randomly remove half of the labels,
 run function prediction on it, and evaluate the accuracy.
+
+We want to test the performance of our algorithm on the STRING protein
+interaction database.
