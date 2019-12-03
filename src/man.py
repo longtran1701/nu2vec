@@ -12,11 +12,11 @@ def parse_args():
     parser.add_argument('--input', nargs='?', help="Input File of Graph")
     parser.add_argument('--output', nargs='?', help="Output Embedding")
     parser.add_argument('--p', type=float, default=1,
-	                        help='Return hyperparameter. Default is 1.')
+                        help='Return hyperparameter. Default is 1.')
     parser.add_argument('--q', type=float, default=1,
-	                    help='Inout hyperparameter. Default is 1.')
-	parser.add_argument('--r', type=float, default=1,
-	                    help='Teleport hyperparameter. Default is 1.')
+                        help='Inout hyperparameter. Default is 1.')
+    parser.add_argument('--r', type=float, default=1,
+                        help='Teleport hyperparameter. Default is 1.')
     return parser.parse_args()
 
 
@@ -56,8 +56,8 @@ def normalize_edges_by_component(G, to_keep):
     return G
 
 
-def run_node2vec(G, file_prefix, nn, p=1, q=1, r=1):
-    filename = f'{file_prefix}.{".".join(nn)}.{time.time()}.tmp'
+def run_node2vec(G, file_prefix, nn):
+    filename = f'{file_prefix}.{".".join(nn)}.p.{args.p}.q.{args.q}.r.{args.r}.tmp'
     with open(filename, 'w') as f:
         for u, v in G.edges():
             f.write('{} {} {}\n'.format(u, v, G[u][v]['weight']))
