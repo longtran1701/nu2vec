@@ -8,6 +8,8 @@ import random
 Current TODOs:
   - Only chooses best label, output list of l abels with significance
   - Argument parsing is a code smell. I don't like it.
+  - Investigate potential lack of determinism
+  - TRIPLE check cross validation code.
 """
 
 """
@@ -114,6 +116,8 @@ def parse_network(args):
 """
 Returns most popular label among the voters,
 optionally weighted by their significance.
+
+Requires each voter to be labeled.
 """
 def vote(voters, labels, weights=None):
     label_counts = {}
@@ -139,12 +143,12 @@ Outputs a labelling for the nodes.
 """
 def knn(matrix, node_names, labels, k):
     labelling = {}
-
     distances = dist.squareform(dist.pdist(matrix))
 
     for i in range(len(matrix)):
         node = node_names[i]
 
+        """ If node is already labeled, don't label it again! """
         if node in labels:
             labelling[node] = labels[node]
             continue
@@ -152,11 +156,11 @@ def knn(matrix, node_names, labels, k):
         sorted_voter_ids = np.argsort(distances[i])[1:]
 
         voters = []
-
         j = 0
-        while len(voters) < k or j >= len(sorted_voter_ids):
-            potential_voter = node_names[j]
-            if potential_voter in labelling:
+        while len(voters) < k and j < len(sorted_voter_ids):
+            potential_voter_id = sorted_voter_ids[j]
+            potential_voter = node_names[potential_voter_id]
+            if potential_voter in labels:
                 voters.append(potential_voter)
             j = j + 1
 
@@ -217,26 +221,67 @@ def run_algorithm(labels, args):
         (mat, nna) = parse_network(args)
         return knn(mat, nna, labels, k)
 
+"""
+Scores cross validation by counting the
+number of test nodes that were accurately labeled
+after their removal from the true labelling.
+"""
+def score_cv(test_nodes, test_labelling, real_labelling):
+    correct = 0
+    total = 0
+    for node in test_nodes:
+        if node not in test_labelling:
+            print("Idk what is happening every test node should be labelled.")
+            continue
+
+        test_label = test_labelling[node][0]
+        if test_label in real_labelling[node]:
+            correct += 1
+        total += 1
+
+    return float(correct) / float(total)
+
 if __name__ == "__main__":
     args = parse_args()
     labels = parse_labels(args.labels)
 
+    random.seed(0)
+
+    """ In cross validation, labels are
+    assumed to cover every node. """
     if args.cross_validate is not None:
-        nodes = list(labels.keys())
+        nodes = list(labels.keys())  # only look at nodes without labels
         random.shuffle(nodes)
+        accuracies = []
 
         """ Remove n / k nodes from labelling and run algorithm on
             each set. """
         for i in range(0, args.cross_validate):
             inc = int(len(nodes) / args.cross_validate)
 
-            training_nodes = nodes[:inc * i] + nodes[inc * (i + 1):]
+            x = inc * i
+            y = inc * (i + 1)
+            if i + 1 == args.cross_validate:
+                y = len(nodes)
+
+            training_nodes = nodes[:x] + nodes[y:]
+            test_nodes = nodes[x:y]
+
             training_labels = {}
             for n in training_nodes:
                 if n in labels:
                     training_labels[n] = labels[n]
 
             test_labelling = run_algorithm(training_labels, args)
+            accuracy = score_cv(test_nodes, test_labelling, labels)
+            accuracies.append(accuracy)
+
+        print("Cross Validation Results")
+        print("========================")
+        for i in range(len(accuracies)):
+            acc = accuracies[i]
+            print("Fold " + str(i) + " Accuracy: " + str(acc))
+
     else:
         labelling = run_algorithm(labels, args)
 
