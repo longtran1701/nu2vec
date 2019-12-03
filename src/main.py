@@ -52,7 +52,7 @@ def parse_args():
 	                    help='Inout hyperparameter. Default is 1.')
 	
 	parser.add_argument('--r', type=float, default=1,
-	                    help='Inout hyperparameter. Default is 1.')
+	                    help='Teleport hyperparameter. Default is 1.')
 
 	parser.add_argument('--nn', nargs="*", default=[], help='names of networks')
 

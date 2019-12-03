@@ -11,6 +11,12 @@ def parse_args():
     parser.add_argument('--keep', nargs='*', help="Networks to keep from file", default=None)
     parser.add_argument('--input', nargs='?', help="Input File of Graph")
     parser.add_argument('--output', nargs='?', help="Output Embedding")
+    parser.add_argument('--p', type=float, default=1,
+	                        help='Return hyperparameter. Default is 1.')
+    parser.add_argument('--q', type=float, default=1,
+	                    help='Inout hyperparameter. Default is 1.')
+	parser.add_argument('--r', type=float, default=1,
+	                    help='Teleport hyperparameter. Default is 1.')
     return parser.parse_args()
 
 
@@ -51,14 +57,14 @@ def normalize_edges_by_component(G, to_keep):
 
 
 def run_node2vec(G, file_prefix, nn, p=1, q=1, r=1):
-    filename = f'{p}.{q}.{r}.{file_prefix}.{".".join(nn)}.{time.time()}.tmp'
+    filename = f'{file_prefix}.{".".join(nn)}.{time.time()}.tmp'
     with open(filename, 'w') as f:
         for u, v in G.edges():
             f.write('{} {} {}\n'.format(u, v, G[u][v]['weight']))
 
     subprocess.call(['python3', 'main.py', '--input', filename,
-               '--output', filename + '.emb', '--p', str(p), '--q', str(q),
-               '--r', str(r), '--nn'] + nn + ['--weighted', '--undirected'])
+               '--output', filename + '.emb', '--p', str(args.p), '--q', str(args.q),
+               '--r', str(args.r), '--nn'] + nn + ['--weighted', '--undirected'])
     
     remove(filename)
 

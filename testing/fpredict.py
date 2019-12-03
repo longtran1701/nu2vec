@@ -230,8 +230,9 @@ def score_cv(test_nodes, test_labelling, real_labelling):
     correct = 0
     total = 0
     for node in test_nodes:
+
+        # ignore nodes that are unlabelled in training set
         if node not in test_labelling:
-            print("Idk what is happening every test node should be labelled.")
             continue
 
         test_label = test_labelling[node][0]
