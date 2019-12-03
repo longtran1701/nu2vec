@@ -51,7 +51,7 @@ def normalize_edges_by_component(G, to_keep):
 
 
 def run_node2vec(G, file_prefix, nn, p=1, q=1, r=1):
-    filename = f'{file_prefix}.{".".join(nn)}.{time.time()}.tmp'
+    filename = f'{p}.{q}.{r}.{file_prefix}.{".".join(nn)}.{time.time()}.tmp'
     with open(filename, 'w') as f:
         for u, v in G.edges():
             f.write('{} {} {}\n'.format(u, v, G[u][v]['weight']))
