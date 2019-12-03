@@ -277,6 +277,7 @@ if __name__ == "__main__":
             accuracy = score_cv(test_nodes, test_labelling, labels)
             accuracies.append(accuracy)
 
+        print(f"Average Accuracy: {np.mean(accuracies)}")
         print("Cross Validation Results")
         print("========================")
         for i in range(len(accuracies)):
