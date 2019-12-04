@@ -18,23 +18,24 @@ def get_files(folder_name):
 def find_optimal_params(files, folder_name):
     acc_list = []
     for file in tqdm(files):
-        name_list = file.split(".")
+        name_list = file.split(".p.")[1]
         try:
-            p_index = name_list.index('p') + 1
-            q_index = name_list.index('q') + 1
-            r_index = name_list.index('r') + 1
+            p, rest = tuple(name_list.split(".q."))
+            q, rest = tuple(rest.split(".r."))
+            r       = rest.split('.tmp.emb')[0]
+            
             full_path = f'{folder_name}/{file}'
             args = ['python3', '../../fpredict.py', full_path, 
                 '../inputs/mips-top-level.anno3', '--network-type', 'embedding', 
                 '--algorithm', 'knn', '--args', '10', '--cross-validate', '2']
+            print(' '.join(args))
             with open(full_path, 'r') as f:
                 out, _ = Popen(args, stdout=PIPE).communicate()
                 pattern = re.compile(r"Average Accuracy: (\d+\.\d+)")
                 match = re.search(pattern, out.decode("ascii"))
                 if match is not None:
                     acc = match.group(1)
-                    acc_list.append((name_list[p_index], name_list[q_index],
-                                    name_list[r_index], float(acc)))
+                    acc_list.append((p, q, r, float(acc)))
         except:
             print(f"Provided wrong file format: {file}")
             return None
