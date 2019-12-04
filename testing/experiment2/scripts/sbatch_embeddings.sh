@@ -2,7 +2,7 @@
 
 SBATCH_OPTS="\
 --mail-type=END --mail-user=Henri.Schmidt@tufts.edu \
--N 1 -n 1 --mem=32000 --time=7-00:00:00 \
+-N 1 -n 1 --mem=150GB --time=7-00:00:00 \
 "
 
 VALUES=(0.25 0.5 1 2 4)

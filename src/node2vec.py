@@ -7,6 +7,7 @@ from itertools import permutations
 
 class Graph():
 	def __init__(self, nx_G, is_directed, p, q, r, nn=None):
+		random.seed(73)
 		self.G = nx_G
 		self.is_directed = is_directed
 		self.p = p
@@ -115,7 +116,7 @@ class Graph():
 		alias_nodes = {}
 
 		print('------------------Processing nodes------------------')
-		for node in tqdm(G.nodes()):
+		for node in G.nodes():
 			unnormalized_probs = [G[node][nbr]['weight'] for nbr in sorted(G.neighbors(node))]
 			norm_const = sum(unnormalized_probs)
 			normalized_probs =  [float(u_prob)/norm_const for u_prob in unnormalized_probs]
@@ -129,7 +130,7 @@ class Graph():
 				alias_edges[edge] = self.get_alias_edge(edge[0], edge[1])
 		else:
 			print('------------------Processing edges------------------')
-			for u, v in tqdm(G.edges()):
+			for u, v in G.edges():
 				u_v = self.get_alias_edge(u, v)
 				v_u = self.get_alias_edge(v, u)
 				alias_edges[(u, v)] = u_v
@@ -138,7 +139,7 @@ class Graph():
 			print('----------------Processing networks-----------------')
 
 			edge_set = set(G.edges())
-			for u, v in tqdm(list(permutations(G.nodes(), 2))):
+			for u, v in permutations(G.nodes(), 2):
 				u_pref, u_suf = tuple(u.split('_'))
 				v_pref, v_suf = tuple(v.split('_'))
 				other_networks = [n for n in self.nn if n != u_suf]
