@@ -111,7 +111,8 @@ def parse_network(args):
     elif args.network_type == "embedding":
         return parse_embedding(args.network)
     elif args.network_type == "string":
-        return parse_string_network(args.network, args.string)
+        column = int(args.args[0])
+        return parse_string_network(args.network, column)
 
 """
 Returns most popular label among the voters,
@@ -183,7 +184,7 @@ def mv(G, labels, weighted=False):
             labelling[node] = labels[node]
             continue
 
-        voters = list(G[node])
+        voters = filter(lambda x: x in labels, G[node])
         if weighted:
             weights = {}
 
