@@ -33,6 +33,7 @@ def find_optimal_params(files, folder_name):
                 out, _ = Popen(args, stdout=PIPE).communicate()
                 pattern = re.compile(r"Average Accuracy: (\d+\.\d+)")
                 match = re.search(pattern, out.decode("ascii"))
+                print("Here")
                 if match is not None:
                     acc = match.group(1)
                     acc_list.append((p, q, r, float(acc)))
