@@ -63,3 +63,7 @@ Results
 |         | cooccurence - mv | cooccurence - wmv | coexpression - mv | coexpression - wmv | experimental - mv | experimental - wmv |
 | ------- | ---------------- | ----------------- | ----------------- | ------------------ | ----------------- | ------------------ |
 | 2-fold  | 0.74520678396517 | 0.745206783965173 | 0.740489379869999 | 0.6297536890114045 | 0.740489379869999 | 0.8059851122437773 |
+
+This result is because we're using MIPS level 3 instead of level 1. However even
+when we use MIPS level 1 to vote, the result is still absurdly good on weighted
+majority vote (roughly 72% accuracy).

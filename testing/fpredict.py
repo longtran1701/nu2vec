@@ -4,7 +4,7 @@ import numpy as np
 import networkx as nx
 import random
 from collections import defaultdict
-from tqdm import tqdm
+
 
 """
 Current TODOs:
@@ -243,8 +243,6 @@ if __name__ == "__main__":
     labels = parse_labels(args.labels)
     network = parse_network(args)
 
-    print(f'Network has {len(labels.keys())} labeled nodes')
-
     random.seed(0)
 
     """ In cross validation, labels are
@@ -256,7 +254,7 @@ if __name__ == "__main__":
 
         """ Remove n / k nodes from labelling and run algorithm on
             each set. """
-        for i in tqdm(range(0, args.cross_validate)):
+        for i in range(0, args.cross_validate):
             inc = int(len(nodes) / args.cross_validate)
 
             x = inc * i
@@ -279,9 +277,6 @@ if __name__ == "__main__":
         for i in range(len(accuracies)):
             acc = accuracies[i]
             print("Fold " + str(i) + " Accuracy: " + str(acc))
-        
-        print(f"Average Accuracy: {np.mean(accuracies)}")
-
     else:
         labelling = run_algorithm(network, labels, args)
 
