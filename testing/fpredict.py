@@ -3,6 +3,7 @@ import scipy.spatial.distance as dist
 import numpy as np
 import networkx as nx
 import random
+from collections import defaultdict
 from tqdm import tqdm
 
 """
@@ -122,18 +123,11 @@ optionally weighted by their significance.
 Requires each voter to be labeled.
 """
 def vote(voters, labels, weights=None):
-    label_counts = {}
+    label_counts = defaultdict(int)
 
     for voter in voters:
         for label in labels[voter]:
-            weight = 1
-            if weights is not None:
-                weight = weights[voter]
-
-            if label not in label_counts:
-                label_counts[label] = weight
-            else:
-                label_counts[label] += weight
+            label_counts[label] += 1 if not weights else weights[voter]
     
     if not label_counts:
         return random.choice(list(set(np.array(labels.values()).flatten())))
@@ -161,15 +155,17 @@ def knn(matrix, node_names, labels, k):
         sorted_voter_ids = np.argsort(distances[i])[1:]
 
         voters = []
+        weights = {}
         j = 0
         while len(voters) < k and j < len(sorted_voter_ids):
             potential_voter_id = sorted_voter_ids[j]
             potential_voter = node_names[potential_voter_id]
             if potential_voter in labels:
                 voters.append(potential_voter)
-            j = j + 1
+                weights[potential_voter] = 1. / float(distances[i][potential_voter_id])
+            j += 1
 
-        label = vote(voters, labels)
+        label = vote(voters, labels, weights)
         labelling[node] = [label]
 
     return labelling
@@ -189,17 +185,13 @@ def mv(G, labels, weighted=False):
             continue
 
         voters = filter(lambda x: x in labels, G[node])
+
+        weights = None
         if weighted:
-            weights = {}
+            weights = {voter : data["weight"] for (voter, data) in G[node].items()}
 
-            for (voter, data) in G[node].items():
-                weights[voter] = data["weight"]
-
-            label = vote(voters, labels, weights=weights)
-            labelling[node] = [label]
-        else:
-            label = vote(voters, labels)
-            labelling[node] = [label]
+        label = vote(voters, labels, weights=weights)
+        labelling[node] = [label]
 
     return labelling
 
@@ -273,12 +265,9 @@ if __name__ == "__main__":
                 y = len(nodes)
 
             training_nodes = nodes[:x] + nodes[y:]
+            training_labels = {n : labels[n] for n in training_nodes if n in labels}
             test_nodes = nodes[x:y]
 
-            training_labels = {}
-            for n in training_nodes:
-                if n in labels:
-                    training_labels[n] = labels[n]
 
             test_labelling = run_algorithm(network, training_labels, args)
             accuracy = score_cv(test_nodes, test_labelling, labels)
