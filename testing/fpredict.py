@@ -133,6 +133,9 @@ def vote(voters, labels, weights=None):
                 label_counts[label] = weight
             else:
                 label_counts[label] += weight
+    
+    if not label_counts:
+        return random.choice(list(set(np.array(labels.values()).flatten())))
 
     return max(label_counts, key=lambda k: label_counts[k])
 
@@ -247,12 +250,12 @@ if __name__ == "__main__":
     args = parse_args()
     labels = parse_labels(args.labels)
 
-    random.seed(0)
+    random.seed(42069)
 
     """ In cross validation, labels are
     assumed to cover every node. """
     if args.cross_validate is not None:
-        nodes = list(labels.keys())  # only look at nodes without labels
+        nodes = list(labels.keys())  # only look at nodes with labels
         random.shuffle(nodes)
         accuracies = []
 
@@ -289,8 +292,8 @@ if __name__ == "__main__":
         labelling = run_algorithm(labels, args)
 
         """ Print labelling to stdout """
-        for node, labels in labelling.items():
-            labels_str = " ".join(labels)
+        for node, labels_list in labelling.items():
+            labels_str = " ".join(labels_list)
             print(node + " " + labels_str)
 
     exit(0)
