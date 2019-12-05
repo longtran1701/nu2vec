@@ -3,6 +3,7 @@ import scipy.spatial.distance as dist
 import numpy as np
 import networkx as nx
 import random
+from tqdm import tqdm
 
 """
 Current TODOs:
@@ -205,13 +206,11 @@ def mv(G, labels, weighted=False):
 """
 Runs algorithm, returns labelling.
 """
-def run_algorithm(labels, args):
+def run_algorithm(network, labels, args):
     if args.algorithm == "mv":
-        graph = parse_network(args)
-        return mv(graph, labels, weighted=False)
+        return mv(network, labels, weighted=False)
     elif args.algorithm == "wmv":
-        graph = parse_network(args)
-        return mv(graph, labels, weighted=True)
+        return mv(network, labels, weighted=True)
     elif args.algorithm == "knn":
         try:
             k = int(args.args[0])
@@ -221,9 +220,10 @@ def run_algorithm(labels, args):
         except ValueError:
             print("Expected integer argument.")
             exit(1)
-
-        (mat, nna) = parse_network(args)
+        
+        (mat, nna) = tuple(network)
         return knn(mat, nna, labels, k)
+
 
 """
 Scores cross validation by counting the
@@ -249,8 +249,11 @@ def score_cv(test_nodes, test_labelling, real_labelling):
 if __name__ == "__main__":
     args = parse_args()
     labels = parse_labels(args.labels)
+    network = parse_network(args)
 
-    random.seed(42069)
+    print(f'Network has {len(labels.keys())} labeled nodes')
+
+    random.seed(0)
 
     """ In cross validation, labels are
     assumed to cover every node. """
@@ -261,7 +264,7 @@ if __name__ == "__main__":
 
         """ Remove n / k nodes from labelling and run algorithm on
             each set. """
-        for i in range(0, args.cross_validate):
+        for i in tqdm(range(0, args.cross_validate)):
             inc = int(len(nodes) / args.cross_validate)
 
             x = inc * i
@@ -277,7 +280,7 @@ if __name__ == "__main__":
                 if n in labels:
                     training_labels[n] = labels[n]
 
-            test_labelling = run_algorithm(training_labels, args)
+            test_labelling = run_algorithm(network, training_labels, args)
             accuracy = score_cv(test_nodes, test_labelling, labels)
             accuracies.append(accuracy)
 
@@ -287,9 +290,11 @@ if __name__ == "__main__":
         for i in range(len(accuracies)):
             acc = accuracies[i]
             print("Fold " + str(i) + " Accuracy: " + str(acc))
+        
+        print(f"Average Accuracy: {np.mean(accuracies)}")
 
     else:
-        labelling = run_algorithm(labels, args)
+        labelling = run_algorithm(network, labels, args)
 
         """ Print labelling to stdout """
         for node, labels_list in labelling.items():
