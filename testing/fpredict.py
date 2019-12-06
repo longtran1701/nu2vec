@@ -49,8 +49,8 @@ def parse_labels(fname):
             words = line.split()
             name = words[0]
             labels = words[1:]
-            node_name_to_labels[name] = labels
-
+            if labels:
+                node_name_to_labels[name] = labels
     return node_name_to_labels
 
 """
@@ -91,12 +91,15 @@ def parse_string_network(fname, column):
 
     with open(fname, "r") as f:
         lines = f.readlines()
+        print(lines[0].split()[column])
         for line in lines[1:]:
             words = line.split()
 
-            protein1 = words[0][5:]
-            protein2 = words[1][5:]
-            weight = float(words[column + 2])
+            protein1 = words[0].split('.')
+            protein1 = protein1[0] if len(protein1) == 1 else protein1[1]
+            protein2 = words[1].split('.')
+            protein2 = protein2[0] if len(protein2) == 1 else protein2[1]
+            weight = float(words[column])
 
             graph.add_edge(protein1, protein2, weight=weight)
 
@@ -165,7 +168,7 @@ def knn(matrix, node_names, labels, k):
                 weights[potential_voter] = 1. / float(distances[i][potential_voter_id])
             j += 1
 
-        label = vote(voters, labels, weights)
+        label = vote(voters, labels)#, weights)
         labelling[node] = [label]
 
     return labelling
@@ -242,6 +245,7 @@ if __name__ == "__main__":
     args = parse_args()
     labels = parse_labels(args.labels)
     network = parse_network(args)
+    print(f'There are {len(labels.keys())} labeled nodes')
 
     random.seed(0)
 
@@ -251,10 +255,10 @@ if __name__ == "__main__":
         nodes = list(labels.keys())  # only look at nodes with labels
         random.shuffle(nodes)
         accuracies = []
-
         """ Remove n / k nodes from labelling and run algorithm on
             each set. """
-        for i in range(0, args.cross_validate):
+        from tqdm import tqdm
+        for i in tqdm(range(0, args.cross_validate)):
             inc = int(len(nodes) / args.cross_validate)
 
             x = inc * i
@@ -266,7 +270,6 @@ if __name__ == "__main__":
             training_labels = {n : labels[n] for n in training_nodes if n in labels}
             test_nodes = nodes[x:y]
 
-
             test_labelling = run_algorithm(network, training_labels, args)
             accuracy = score_cv(test_nodes, test_labelling, labels)
             accuracies.append(accuracy)
@@ -274,9 +277,9 @@ if __name__ == "__main__":
         print(f"Average Accuracy: {np.mean(accuracies)}")
         print("Cross Validation Results")
         print("========================")
-        for i in range(len(accuracies)):
-            acc = accuracies[i]
-            print("Fold " + str(i) + " Accuracy: " + str(acc))
+        # for i in range(len(accuracies)):
+        #     acc = accuracies[i]
+        #     print("Fold " + str(i) + " Accuracy: " + str(acc))
     else:
         labelling = run_algorithm(network, labels, args)
 
