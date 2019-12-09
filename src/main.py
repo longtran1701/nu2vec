@@ -53,6 +53,9 @@ def parse_args():
 	
 	parser.add_argument('--r', type=float, default=1,
 	                    help='Teleport hyperparameter. Default is 1.')
+	
+	parser.add_argument('--rs', nargs="*", default=None, help=('teleportation ' +
+						'probabilities into networks; has to be the same size as nn'))
 
 	parser.add_argument('--nn', nargs="*", default=[], help='names of networks')
 
@@ -99,7 +102,7 @@ def main(args):
 	Pipeline for representational learning for all nodes in a graph.
 	'''
 	nx_G = read_graph()
-	G = node2vec.Graph(nx_G, args.directed, args.p, args.q, args.r, args.nn)
+	G = node2vec.Graph(nx_G, args.directed, args.p, args.q, args.r, args.nn, args.rs)
 	G.preprocess_transition_probs()
 	walks = G.simulate_walks(args.num_walks, args.walk_length)
 	learn_embeddings(walks)

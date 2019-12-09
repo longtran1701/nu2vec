@@ -17,6 +17,8 @@ def parse_args():
                         help='Inout hyperparameter. Default is 1.')
     parser.add_argument('--r', type=float, default=1,
                         help='Teleport hyperparameter. Default is 1.')
+    parser.add_argument('--rs', nargs='*', default=None, 
+                        help="Teleportation parameters into networks")
     return parser.parse_args()
 
 
@@ -56,23 +58,37 @@ def normalize_edges_by_component(G, to_keep):
     return G
 
 
-def run_node2vec(G, file_prefix, nn):
-    filename = f'{file_prefix}.{".".join(nn)}.p.{args.p}.q.{args.q}.r.{args.r}.tmp'
+def run_node2vec(G, args):
+    filename = f'{args.input}.{".".join(args.keep)}.p.{args.p}.q.{args.q}.'
+    if not args.rs:
+        filename += f'r.{args.r}.tmp'
+    else:
+        for i in range(len(args.keep)):
+            filename += f'r_{args.keep[i]}.{args.rs[i]}.'
+        filename += 'tmp'
+
     with open(filename, 'w') as f:
         for u, v in G.edges():
             f.write('{} {} {}\n'.format(u, v, G[u][v]['weight']))
 
-    subprocess.call(['python3', 'main.py', '--input', filename,
-               '--output', filename + '.emb', '--p', str(args.p), '--q', str(args.q),
-               '--r', str(args.r), '--nn'] + nn + ['--weighted', '--undirected'])
+    r_to_use = ['--r', str(args.r)] if not args.rs else ['--rs'] + [str(r) for r in args.rs]    
+    n2v = ['python', 'main.py', '--input', filename, '--output', filename + '.emb',
+           '--p', str(args.p), '--q', str(args.q), '--nn'] + args.keep + ['--weighted',
+           '--undirected'] + r_to_use
+    
+    print(n2v)
+    subprocess.call(n2v)
     
     remove(filename)
 
 
 def main(argv):
+    if argv.rs is not None and len(argv.rs) != len(argv.keep):
+            raise Exception('Number of r params need to equal number of networks to keep')
+        
     G = keep_networks(argv.input, to_keep=argv.keep)
     G = normalize_edges_by_component(G, to_keep=argv.keep)
-    run_node2vec(G, argv.input, argv.keep)
+    run_node2vec(G, argv)
 
 
 if __name__ == '__main__':

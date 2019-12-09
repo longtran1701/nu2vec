@@ -6,16 +6,27 @@ from itertools import permutations
 
 
 class Graph():
-	def __init__(self, nx_G, is_directed, p, q, r, nn=None):
+	def __init__(self, nx_G, is_directed, p, q, r, nn=None, rs=None):
 		random.seed(73)
 		self.G = nx_G
 		self.is_directed = is_directed
 		self.p = p
 		self.q = q
-		self.r = r
 		self.nn = nn
+		
 		if not self.nn:
 			raise Exception("Must name at least 1 network")
+		
+		self.rs = {}
+		if rs:
+			if len(rs) != len(self.nn):
+				raise Exception('Number of r params need to equal number of '
+								+ 'networks to keep if more than 1 is passed')
+			
+			for i in range(len(rs)):
+				self.rs[nn[i]] = rs[i]
+		else:
+			self.rs = {network : r for network in nn}
 
 
 	def node2vec_walk(self, walk_length, start_node):
@@ -77,10 +88,10 @@ class Graph():
 		'''
 		Get the alias edge setup lists for a given edge.
 		'''
-		G = self.G
-		p = self.p
-		q = self.q
-		r = self.r
+		G  = self.G
+		p  = self.p
+		q  = self.q
+		rs = self.rs
 
 		unnormalized_probs = []
 
@@ -98,7 +109,7 @@ class Graph():
 			try:
 				dst_network = f'{dst_prefix}_{network}'
 				for dst_nbr in sorted(G.neighbors(dst_network)):
-					unnormalized_probs.append(G[dst_network][dst_nbr]['weight'] / (r * (len(self.nn) - 1)))
+					unnormalized_probs.append(G[dst_network][dst_nbr]['weight'] / (rs[network] * (len(self.nn) - 1)))
 			except:
 				continue
 		norm_const = sum(unnormalized_probs)
