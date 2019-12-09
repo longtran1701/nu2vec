@@ -72,11 +72,10 @@ def run_node2vec(G, args):
             f.write('{} {} {}\n'.format(u, v, G[u][v]['weight']))
 
     r_to_use = ['--r', str(args.r)] if not args.rs else ['--rs'] + [str(r) for r in args.rs]    
-    n2v = ['python', 'main.py', '--input', filename, '--output', filename + '.emb',
+    n2v = ['python3', 'main.py', '--input', filename, '--output', filename + '.emb',
            '--p', str(args.p), '--q', str(args.q), '--nn'] + args.keep + ['--weighted',
            '--undirected'] + r_to_use
-    
-    print(n2v)
+
     subprocess.call(n2v)
     
     remove(filename)
