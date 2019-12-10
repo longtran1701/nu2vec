@@ -31,7 +31,9 @@ at the neighbors that have labels.
 
 We have the following inputs stored under the inputs directory:
 
-- (mips-top-level.anno3) MIPS top-level annotation file
+- (mips-top-level.anno3) MIPS first level annotation file
 - (string-yeast.networks) STRING networks
 
-#### Outputs
+### Results
+
+See slides

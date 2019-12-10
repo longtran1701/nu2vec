@@ -101,8 +101,10 @@ def parse_string_network(fname, column):
             protein2 = protein2[0] if len(protein2) == 1 else protein2[1]
             weight = float(words[column])
 
-            graph.add_edge(protein1, protein2, weight=weight)
-
+            if weight != 0:
+                graph.add_edge(protein1, protein2, weight=weight)
+    
+    print(len(graph))
     return graph
 
 """
@@ -127,15 +129,14 @@ Requires each voter to be labeled.
 """
 def vote(voters, labels, weights=None):
     label_counts = defaultdict(int)
-
     for voter in voters:
         for label in labels[voter]:
-            label_counts[label] += 1 if not weights else weights[voter]
+            label_counts[label] += (1 if not weights else weights[voter])
     
     if not label_counts:
         return random.choice(list(set(np.array(labels.values()).flatten())))
 
-    return max(label_counts, key=lambda k: label_counts[k])
+    return max(label_counts.keys(), key=lambda k: label_counts[k])
 
 """
 Uses k-nearest neighbors to vote for
@@ -168,7 +169,7 @@ def knn(matrix, node_names, labels, k):
                 weights[potential_voter] = 1. / float(distances[i][potential_voter_id])
             j += 1
 
-        label = vote(voters, labels)#, weights)
+        label = vote(voters, labels, weights)
         labelling[node] = [label]
 
     return labelling
