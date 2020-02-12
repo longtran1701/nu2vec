@@ -91,7 +91,8 @@ def parse_string_network(fname, column):
 
     with open(fname, "r") as f:
         lines = f.readlines()
-        print(lines[0].split()[column])
+        print('Getting graph from columns:')
+        [print(lines[0].split()[col]) for col in column]
         for line in lines[1:]:
             words = line.split()
 
@@ -99,7 +100,7 @@ def parse_string_network(fname, column):
             protein1 = protein1[0] if len(protein1) == 1 else protein1[1]
             protein2 = words[1].split('.')
             protein2 = protein2[0] if len(protein2) == 1 else protein2[1]
-            weight = float(words[column])
+            weight = sum(float(words[col]) for col in column)
 
             if weight != 0:
                 graph.add_edge(protein1, protein2, weight=weight)
@@ -118,7 +119,7 @@ def parse_network(args):
     elif args.network_type == "embedding":
         return parse_embedding(args.network)
     elif args.network_type == "string":
-        column = int(args.args[0])
+        column = [int(a) for a in args.args]
         return parse_string_network(args.network, column)
 
 """
